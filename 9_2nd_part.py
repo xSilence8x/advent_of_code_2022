@@ -1,7 +1,7 @@
 with open("data/9.txt", "r") as f:
     data = [line.strip() for line in f.readlines()]
 
-coord_t = [[0, 0] for x in range(10)] # 9 resting knots in total
+coord_t = [[0, 0] for x in range(10)]
 
 coord_move = {
     "R": [1, 0],
@@ -14,9 +14,9 @@ list_coord_h = []
 list_coord_t = [coord_t[-1]]
 
 for x in data:
-    direction, moves = x.split(" ") # R 4
+    direction, moves = x.split(" ")
     moves = int(moves)
-    for y in range(moves): # 0 1 2 3 (4x)
+    for y in range(moves):
         coord_t[0] = [x + y for x, y in zip(coord_move[direction], coord_t[0])]
         list_coord_h.append(coord_t[0])
         for i in range(1, 10):
